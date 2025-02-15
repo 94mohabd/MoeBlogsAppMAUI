@@ -1,0 +1,56 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFirstMauiApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Margin="20">
+
+            <Label Text="Moe Blogs" FontSize="Large" HorizontalOptions="Center" />
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsLoading}" IsVisible="{Binding IsLoading}" />
+
+            <!-- Blog Posts CollectionView -->
+            <CollectionView ItemsSource="{Binding BlogPosts}" Margin="0,20,0,0" IsVisible="{Binding IsNotLoading}">
+                <CollectionView.EmptyView>
+                    <Label Text="Blogs Not Found!" HorizontalOptions="Center" TextColor="Red" />
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="1"/>
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="0" Margin="0, 10, 0, 0" HasShadow="True" CornerRadius="10">
+                            <VerticalStackLayout Padding="10">
+                                <Image Source="{Binding FeaturedImageUrl}"
+                                       Aspect="AspectFill"
+                                       HeightRequest="150"
+                                       WidthRequest="200" />
+                                
+                                <Label Text="{Binding Title}"
+                                       FontSize="Medium"
+                                       FontAttributes="Bold"
+                                       Margin="5,0,0,5" />
+                                
+                                <Label Text="{Binding ShortDescription}"
+                                       FontSize="Small"
+                                       TextColor="Gray" />
+                                
+                                <Button Text="Read More"
+                                        CommandParameter="{Binding Id}"
+                                        Clicked="OnReadMoreClicked" 
+                                        BackgroundColor="#007bff"
+                                        TextColor="White"
+                                        HorizontalOptions="Fill"
+                                        Margin="5" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

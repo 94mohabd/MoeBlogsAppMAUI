@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyFirstMauiApp.BlogDetailsPage"
+             Title="Blog Details">
+
+	<ScrollView>
+		<VerticalStackLayout Padding="20" Spacing="15">
+
+			<!-- Loading Indicator -->
+			<ActivityIndicator IsVisible="{Binding IsLoading}"
+                               IsRunning="{Binding IsLoading}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand" />
+
+			<!-- Blog Post Content -->
+			<Grid IsVisible="{Binding IsNotLoading}"
+				  RowSpacing="15">
+
+				<!-- Define Rows -->
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<!-- Featured Image -->
+					<RowDefinition Height="Auto" />
+					<!-- Title -->
+					<RowDefinition Height="Auto" />
+					<!-- Author and Published Date -->
+					<RowDefinition Height="Auto" />
+					<!-- Content -->
+				</Grid.RowDefinitions>
+
+				<!-- Featured Image -->
+				<Image Source="{Binding BlogPost.FeaturedImageUrl}"
+				  Aspect="AspectFill"
+				  HeightRequest="250"
+				  Margin="0,0,0,15"
+				  Grid.Row="0" />
+				<!-- Title -->
+				<Label Text="{Binding BlogPost.Title}"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       LineBreakMode="WordWrap"
+                       Margin="0,0,0,5"
+                       Grid.Row="1" />
+
+				<!-- Author and Published Date -->
+				<StackLayout Orientation="Horizontal" Spacing="5" Grid.Row="2">
+					<Label Text="{Binding BlogPost.Author, StringFormat='By {0}'}"
+                           FontSize="Small"
+                           TextColor="Gray" />
+					<Label Text="•" FontSize="Small" TextColor="Gray" />
+					<Label Text="{Binding BlogPost.PublishedDate, StringFormat='Published on {0:MMMM dd, yyyy}'}"
+                           FontSize="Small"
+                           TextColor="Gray" />
+				</StackLayout>
+				<!-- Content -->
+				<Label Text="{Binding BlogPost.Content}"
+                       FontSize="Medium"
+                       LineBreakMode="WordWrap"
+                       Margin="0,20,0,0"
+                       Grid.Row="3" />
+			</Grid>
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>
