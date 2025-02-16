@@ -20,15 +20,20 @@ After cloning the repository, follow these steps to build and run the app:
 1. Open the project in **Visual Studio** or your preferred IDE that supports .NET MAUI.
 2. Build and deploy the app to your desired platform.
 
-## Android APK
+## Download Android APK  
 
-If you want to install the app on an Android device, you can download the signed APK file. The APK file is located in the `publish` folder of the project directory. To get the APK:
+You can install the app on your Android device by downloading the signed APK file.  
 
-1. Navigate to the `publish` folder in the project directory.
-2. Download the `com.companyname.myfirstmauiapp-Signed.apk` file.
-3. Transfer the APK to your Android device.
-4. Install the APK on your device.
+### Quick Download:  
+[**Download APK**](https://github.com/94mohabd/MoeBlogsAppMAUI/raw/7a94437c3036d0d2103ed424273e5868b915e84c/publish/com.companyname.myfirstmauiapp-Signed.apk)  
 
+### Installation Steps:  
+1. Click the **Download APK** button above.  
+2. Transfer the APK to your Android device (if downloaded on a PC).  
+3. Open the APK file on your device and follow the installation prompts.  
+4. If prompted, enable "Install from Unknown Sources" in your device settings.  
+
+Enjoy using the app!
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a **pull request** or open an **issue** if you have any suggestions or improvements.
